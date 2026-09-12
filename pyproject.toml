@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vatquant-core"
+version = "0.1.0"
+description = "MRI visceral adipose tissue (VAT) geometry validation and volume measurement core (development/evaluation only)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Proprietary - internal development" }
+authors = [{ name = "VATQuant developers" }]
+dependencies = [
+    "numpy>=2.1.0,<3",
+    "SimpleITK>=2.4.0,<3",
+    "pydicom>=2.4.0,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9",
+]
+
+[tool.setuptools.packages.find]
+include = ["vatquant_core*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
